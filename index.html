@@ -1,12 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iván Estépar | Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iván Estépar | Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-  <h1>¡Hola! Soy Iván 👋</h1>
-  <p>Bienvenido a mi portfolio personal.</p>
+    <div id="particles-js"></div>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Mi Portfolio</div>
+            <nav>
+                <a href="#about">Sobre mí</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+            <button id="music-toggle" aria-label="Alternar música">
+                🔊
+            </button>
+        </div>
+    </header>
+
+    <audio id="background-music" loop>
+        <source src="audio/mimusica.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <main>
+        <section id="about">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="img/mi-foto.jpg" alt="Iván Estépar" />
+                </div>
+                <div class="about-text">
+                    <h1>Iván Estépar</h1>
+                    <p>
+                        Ingeniero informático apasionado por el desarrollo de software,
+                        con experiencia en proyectos web y aplicaciones móviles.
+                        Me encanta aprender nuevas tecnologías y mejorar cada día.
+                    </p>
+                </div>
+            </div>
+
+            <!-- aquí siguen tus iconos y demás -->
+            <div class="container-languages">
+                <ul>
+                    <li><img src="img/java.svg" alt="Java" title="Java" width="40" height="40" /></li>
+                    <li><img src="img/kotlin.svg" alt="Kotlin" title="Kotlin" width="40" height="40" /></li>
+                    <li><img src="img/html5.svg" alt="HTML5" title="HTML5" width="40" height="40" /></li>
+                    <li><img src="img/css3.svg" alt="CSS3" title="CSS3" width="40" height="40" /></li>
+                    <li><img src="img/javascript.svg" alt="JavaScript" title="JavaScript" width="40" height="40" /></li>
+                    <li><img src="img/python.svg" alt="Python" title="Python" width="40" height="40" /></li>
+                    <li><img src="img/php.svg" alt="PHP" title="PHP" width="40" height="40" /></li>
+                    <li><img src="img/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="40" height="40" /></li>
+                    <li><img src="img/c.svg" alt="C" title="C" width="40" height="40" /></li>
+                    <li><img src="img/flask.svg" alt="Flask" title="Flask" width="40" height="40" /></li>
+                </ul>
+            </div>
+
+            <div class="container-technologies">
+                <ul>
+                    <li><img src="img/git.svg" alt="Git" title="Git" width="40" height="40" /></li>
+                    <li><img src="img/firebase.svg" alt="Firebase" title="Firebase" width="40" height="40" /></li>
+                    <li><img src="img/androidstudio.svg" alt="Android Studio" title="Android Studio" width="40"
+                            height="40" /></li>
+                    <li><img src="img/intellijidea.svg" alt="IntelliJ IDEA" title="IntelliJ IDEA" width="40"
+                            height="40" /></li>
+                    <li><img src="img/vscode.svg" alt="VS Code" title="VS Code" width="40" height="40" /></li>
+                    <li><img src="img/gitlab.svg" alt="GitLab" title="GitLab" width="40" height="40" /></li>
+                    <li><img src="img/github.svg" alt="GitHub" title="GitHub" width="40" height="40" /></li>
+                    <li><img src="img/linux.svg" alt="Linux" title="Linux" width="40" height="40" /></li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="experience">
+            <h2>Experiencia</h2>
+            <div class="experience-list">
+
+                <article class="experience-item">
+                    <h3>Prácticas como Desarrollador Web Fullstack - CSA</h3>
+                    <span class="date">Abril 2023 - Agosto 2023</span>
+                    <p>
+                        Desarrollo y mantenimiento de aplicaciones web usando Drupal.
+                        Implementación de nuevas funcionalidades y optimización del rendimiento.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <section id="projects">
+            <h2>Proyectos</h2>
+            <ul class="projects-list">
+                <li><strong>FlixFinderTV:</strong> Aplicación para buscar y filtrar series y películas.</li>
+                <li><strong>Anime Search Web Engine:</strong> Proyecto para consultar información y enlaces de anime.
+                </li>
+                <li><strong>Quantik:</strong> Juego de mesa digital basado en la estrategia y el razonamiento lógico.
+                </li>
+                <li><strong>Linja:</strong> Juego de mesa digital que desafía tus habilidades estratégicas y tácticas.
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>¿Tienes alguna pregunta o quieres ponerte en contacto? ¡Escríbeme y te responderé lo antes posible!</p>
+            <form id="contact-form" action="" method="POST">
+                <label for="name">Nombre:</label><br />
+                <input type="text" id="name" name="name" required /><br /><br />
+
+                <label for="email">Email:</label><br />
+                <input type="email" id="email" name="_replyto" required /><br /><br />
+
+                <label for="message">Mensaje:</label><br />
+                <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Iván Estépar. Todos los derechos reservados.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>

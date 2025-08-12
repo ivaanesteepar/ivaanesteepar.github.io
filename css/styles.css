@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+main section {
+    width: 100%;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(25, 25, 51);
+    color: white;
+}
+
+/* Header y navegación */
+header {
+    display: flex;
+    background-color: #050608;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 80px;
+}
+
+.nav-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    position: relative;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    padding-left: 50px;
+}
+
+.logo::after {
+    content: "_";
+    position: absolute;
+    right: -15px;
+    animation: blink 1s steps(2, start) infinite;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+    padding-right: 50px;
+}
+
+nav a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding-bottom: 4px;
+    overflow: hidden;
+    transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #61dafb;
+    border-radius: 2px;
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: transform 0.15s ease;
+}
+
+nav a:hover {
+    color: #61dafb;
+    text-shadow:
+        0 0 5px #61dafb,
+        0 0 10px #61dafb,
+        0 0 15px #61dafb;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+@keyframes shine {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}
+
+.container-languages,
+.container-technologies {
+    margin: 0 auto 30px auto;
+    max-width: fit-content;  
+    padding-top: 30px;
+}
+
+.container-languages ul,
+.container-technologies ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    justify-content: center; 
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+}
+
+.about-image img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #61dafb;
+}
+
+.about-text h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #61dafb;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: white;
+}
+
+.container-languages ul li img,
+.container-technologies ul li img {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.container-languages ul li img:hover,
+.container-technologies ul li img:hover {
+    transform: scale(1.1);
+}
+
+/* Sección proyectos */
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: black;
+  padding-top: 20px;
+}
+
+.projects-list li {
+  background-color: #f0f0f0; 
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#contact {
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.5); /* sombra azulada */
+}
+
+/* Sección contacto */
+#contact h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Formulario */
+form#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+form#contact-form label {
+    font-weight: 600;
+}
+
+form#contact-form input,
+form#contact-form textarea {
+    padding: 8px 10px;
+    border: 3px solid black;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    width: 500px;
+}
+
+form#contact-form input:focus,
+form#contact-form textarea:focus {
+    border-color: #61dafb;
+    outline: none;
+}
+
+form#contact-form button {
+    padding: 10px 15px;
+    border: none;
+    width: 300px;
+    background-color: #2e4db4;
+    color: white;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+form#contact-form button:hover {
+    background-color: #21a1f1;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 10px;
+    background-color: #050608;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 60px;
+    user-select: none;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background-color: rgb(25, 25, 51);
+}
+
+body>*:not(#particles-js) {
+    position: relative;
+    z-index: 1;
+}
+
+#experience {
+    position: relative;
+    padding-left: 40px;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+#experience h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Línea vertical */
+.experience-list::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 4px;
+    height: 100%;
+    background-color: #61dafb;
+    border-radius: 2px;
+}
+
+/* Cada item */
+.experience-item {
+    position: relative;
+    border-radius: 8px;
+    padding: 20px 25px 20px 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Punto en la línea para cada experiencia */
+.experience-item::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: -32px;
+    width: 16px;
+    height: 16px;
+    background-color: #61dafb;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #61dafb;
+}
+
+/* Fecha */
+.experience-item .date {
+    font-size: 0.9rem;
+    color: #bbb;
+    font-style: italic;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Animación para mostrar (clase activa) */
+.experience-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#music-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 10px;
+    padding-right: 50px;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Reduce márgenes laterales y verticales en main */
+    main {
+        margin: 20px 15px;
+        padding: 0 15px;
+    }
+
+    /* Secciones max-width más pequeñas */
+    main section {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-image img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-text h1 {
+        font-size: 1.7rem;
+    }
+
+    /* Ajusta tamaño de fuente para textos */
+    #about p,
+    .projects-list,
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    /* Ajusta tamaño y padding del logo */
+    .logo {
+        font-size: 1.3rem;
+        padding-left: 40px;
+    }
+
+    /* Contact form ocupa casi todo el ancho */
+    form#contact-form {
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    /* Inputs y textarea ocupan todo el ancho posible */
+    form#contact-form input,
+    form#contact-form textarea {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    /* Botón más grande y con padding para mejor tactilidad */
+    form#contact-form button {
+        padding: 14px 20px;
+        font-size: 1.1rem;
+        width: 150px;
+    }
+
+    /* Ajusta tamaño iconos y espacio entre ellos */
+    .container-languages ul,
+    .container-technologies ul {
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container-languages ul li img,
+    .container-technologies ul li img {
+        width: 30px;
+        height: 30px;
+    }
+}
