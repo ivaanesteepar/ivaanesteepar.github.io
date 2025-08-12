@@ -106,7 +106,9 @@ function initMobileMenu() {
     });
 }
 
-
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('main').classList.add('fadeInUp');
+});
 
 // Función principal que se ejecuta al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
