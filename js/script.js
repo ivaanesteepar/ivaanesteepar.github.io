@@ -1,4 +1,3 @@
-// Inicializa particles.js con la configuración dada
 function initParticles() {
     particlesJS('particles-js', {
         "particles": {
@@ -39,12 +38,21 @@ function initParticles() {
 }
 
 // Añade la clase 'active' a los elementos de experiencia que están en vista (animación al hacer scroll)
-function initExperienceScrollAnimation() {
-    const items = document.querySelectorAll('.experience-item');
+function initScrollAnimation() {
+    const experienceItems = document.querySelectorAll('.experience-item');
+    const studyItems = document.querySelectorAll('.study-item');
 
     function checkPosition() {
         const windowHeight = window.innerHeight;
-        items.forEach(item => {
+
+        experienceItems.forEach(item => {
+            const positionFromTop = item.getBoundingClientRect().top;
+            if (positionFromTop - windowHeight <= -100) {
+                item.classList.add('active');
+            }
+        });
+
+        studyItems.forEach(item => {
             const positionFromTop = item.getBoundingClientRect().top;
             if (positionFromTop - windowHeight <= -100) {
                 item.classList.add('active');
@@ -53,8 +61,9 @@ function initExperienceScrollAnimation() {
     }
 
     window.addEventListener('scroll', checkPosition);
-    checkPosition(); // Para que los que ya estén visibles al cargar se activen
+    checkPosition(); // Activar al cargar la página
 }
+
 
 // Inicializa el control del audio (play/pause) con el botón de altavoz
 function initMusicToggle() {
@@ -65,10 +74,10 @@ function initMusicToggle() {
     musicToggle.addEventListener("click", () => {
         if (isPlaying) {
             backgroundMusic.pause();
-            musicToggle.textContent = "🔊"; // Icono para sonido apagado
+            musicToggle.textContent = "🔊";
         } else {
             backgroundMusic.play();
-            musicToggle.textContent = "🔈"; // Icono para sonido encendido
+            musicToggle.textContent = "🔇";
         }
         isPlaying = !isPlaying;
     });
@@ -106,14 +115,23 @@ function initMobileMenu() {
     });
 }
 
+// Añade la animación al main cuando se entra a la página
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('main').classList.add('fadeInUp');
 });
 
+// Hace scroll up si se recarga la página
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
+
+// Carga las animaciones cuando se recarga la página
+window.addEventListener('load', initScrollAnimation);
+
 // Función principal que se ejecuta al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
-    initExperienceScrollAnimation();
+    initScrollAnimation();
     initMusicToggle();
     initMobileMenu();
 });

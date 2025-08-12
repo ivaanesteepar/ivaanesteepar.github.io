@@ -18,10 +18,10 @@ main {
 main section {
     width: 100%;
     text-align: center;
+    padding-top: 30px;
 }
 
 body {
-    background-color: rgb(25, 25, 51);
     color: white;
 }
 
@@ -64,14 +64,11 @@ header {
 }
 
 @keyframes blink {
-
-    0%,
-    50% {
+    0%,50% {
         opacity: 1;
     }
 
-    51%,
-    100% {
+    51%,100% {
         opacity: 0;
     }
 }
@@ -211,12 +208,13 @@ nav a:hover::after {
     width: 600px;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
-    /* sombra azulada */
+    margin-top: 50px;
+    border: 2px solid rgba(97, 218, 251, 0.8); /* borde visible */
+    border-radius: 8px;
 }
 
 /* Sección contacto */
 #contact h2 {
-    margin-top: 30px;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -285,7 +283,7 @@ footer {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-color: rgb(25, 25, 51);
+    background-color: rgb(25, 25, 51); /* Fondo */
 }
 
 main,
@@ -294,6 +292,71 @@ footer {
     z-index: 1;
 }
 
+#studies {
+    position: relative;
+    padding-left: 40px;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+#studies h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Línea vertical */
+.studies-list::before {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: 4px;
+    height: 100%;
+    background-color: #61dafb;
+    border-radius: 2px;
+}
+
+/* Cada item */
+.study-item {
+    position: relative;
+    border-radius: 8px;
+    padding: 20px 25px 20px 40px;
+    margin-bottom: 70px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Punto en la línea para cada estudio */
+.study-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -32px;
+    width: 16px;
+    height: 16px;
+    background-color: #61dafb;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #61dafb;
+}
+
+/* Fecha */
+.study-item .date {
+    font-size: 0.9rem;
+    color: #bbb;
+    font-style: italic;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Animación para mostrar (clase activa) */
+.study-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 #experience {
     position: relative;
@@ -312,7 +375,7 @@ footer {
 .experience-list::before {
     content: '';
     position: absolute;
-    top: 50px;
+    top: 80px;
     left: 20px;
     width: 4px;
     height: 100%;
@@ -336,7 +399,7 @@ footer {
 .experience-item::before {
     content: '';
     position: absolute;
-    top: 30px;
+    top: 20px;
     left: -32px;
     width: 16px;
     height: 16px;
