@@ -135,3 +135,42 @@ document.addEventListener('DOMContentLoaded', () => {
     initMusicToggle();
     initMobileMenu();
 });
+
+const langContainer = document.querySelector('.container-languages ul');
+const techContainer = document.querySelector('.container-technologies ul');
+
+// 1. Duplicar contenido para efecto infinito sin huecos
+
+
+let langPos = 0;
+let techPos = 0;
+const speed = 0.5; // Ajusta la velocidad del desplazamiento
+
+function animate() {
+  // Ancho total del contenido original (sin duplicar)
+  const langWidth = langContainer.scrollWidth / 2;
+  const techWidth = techContainer.scrollWidth / 2;
+
+  // Mover languages a la izquierda con límite
+  langPos -= speed;
+  if (langPos <= -langWidth) {
+    langPos += langWidth; // Ajusta la posición para que el contenido duplicado se alinee
+  }
+  langContainer.style.transform = `translateX(${langPos}px)`;
+
+  // Mover technologies a la derecha con límite
+  techPos += speed;
+  if (techPos >= techWidth) {
+    techPos -= techWidth; // Ajusta la posición para que el contenido duplicado se alinee
+  }
+  techContainer.style.transform = `translateX(${techPos}px)`;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+
+
+
+
