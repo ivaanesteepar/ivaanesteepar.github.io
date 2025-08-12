@@ -128,7 +128,6 @@ nav a:hover::after {
     }
 }
 
-
 .container-languages,
 .container-technologies {
     width: 600px;
@@ -146,7 +145,6 @@ nav a:hover::after {
     padding-top: 20px;
     padding-bottom: 30px;
 }
-
 
 .container-languages ul,
 .container-technologies ul {
