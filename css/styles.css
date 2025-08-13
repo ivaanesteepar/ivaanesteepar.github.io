@@ -255,7 +255,8 @@ nav a:hover::after {
     font-size: 1.1rem;
     line-height: 1.5;
     color: white;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .container-languages ul li img,
@@ -438,7 +439,7 @@ footer {
 }
 
 /* Línea vertical */
-.studies-list::before {
+.studies-list::before, .experience-list::before {
     content: '';
     position: absolute;
     top: 80px;
@@ -462,11 +463,11 @@ footer {
 }
 
 /* Punto en la línea para cada estudio */
-.study-item::before {
+.study-item::before, .experience-item::before {
     content: '';
     position: absolute;
     top: 20px;
-    left: -32px;
+    left: -29px;
     width: 16px;
     height: 16px;
     background-color: #61dafb;
@@ -497,18 +498,6 @@ footer {
     margin: 0 auto 60px auto;
 }
 
-/* Línea vertical */
-.experience-list::before {
-    content: '';
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    width: 4px;
-    height: 100%;
-    background-color: #61dafb;
-    border-radius: 2px;
-}
-
 /* Cada item */
 .experience-item {
     position: relative;
@@ -519,20 +508,6 @@ footer {
     opacity: 0;
     transform: translateX(-30px);
     transition: all 0.6s ease-out;
-}
-
-/* Punto en la línea para cada experiencia */
-.experience-item::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: -32px;
-    width: 16px;
-    height: 16px;
-    background-color: #61dafb;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 0 3px #61dafb;
 }
 
 /* Fecha */
