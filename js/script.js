@@ -76,15 +76,18 @@ function initMusicToggle() {
     }
 
     let isPlaying = false;
+    let lastTime = 0; // Guarda el punto donde se pausó
 
     musicToggle.addEventListener("click", async () => {
         if (isPlaying) {
+            lastTime = backgroundMusic.currentTime; // Guarda el tiempo actual
             backgroundMusic.pause();
-            musicToggle.textContent = "🔇"; // Apagado
+            musicToggle.textContent = "🔇";
         } else {
+            backgroundMusic.currentTime = lastTime; // Retoma desde donde estaba
             try {
                 await backgroundMusic.play();
-                musicToggle.textContent = "🔊"; // Encendido
+                musicToggle.textContent = "🔊";
             } catch (err) {
                 console.error("Error al reproducir audio:", err);
             }
