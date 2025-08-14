@@ -64,39 +64,6 @@ function initScrollAnimation() {
     checkPosition(); // Activar al cargar la página
 }
 
-
-// Inicializa el control del audio (play/pause) con el botón de altavoz
-function initMusicToggle() {
-    const musicToggle = document.getElementById("music-toggle");
-    const backgroundMusic = document.getElementById("background-music");
-
-    if (!musicToggle || !backgroundMusic) {
-        console.error("No se encontró el botón o el audio en el DOM.");
-        return;
-    }
-
-    let isPlaying = false;
-    let lastTime = 0; // Guarda el punto donde se pausó
-
-    musicToggle.addEventListener("click", async () => {
-        if (isPlaying) {
-            lastTime = backgroundMusic.currentTime; // Guarda el tiempo actual
-            backgroundMusic.pause();
-            musicToggle.textContent = "🔇";
-        } else {
-            backgroundMusic.currentTime = lastTime; // Retoma desde donde estaba
-            try {
-                await backgroundMusic.play();
-                musicToggle.textContent = "🔊";
-            } catch (err) {
-                console.error("Error al reproducir audio:", err);
-            }
-        }
-        isPlaying = !isPlaying;
-    });
-}
-
-
 function initMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
     const nav = document.querySelector('nav');
@@ -166,7 +133,6 @@ window.addEventListener('load', initScrollAnimation);
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initScrollAnimation();
-    initMusicToggle();
     initMobileMenu();
     initScrollArrow();
 });
