@@ -163,11 +163,11 @@ nav a:hover::after {
     width: max-content;
 }
 
-.container-languages ul {
+.skills-group[data-type="languages"] ul {
     animation: scroll-left 20s linear infinite;
 }
 
-.container-technologies ul {
+.skills-group[data-type="technologies"] ul {
     animation: scroll-right 20s linear infinite;
 }
 
@@ -183,13 +183,14 @@ nav a:hover::after {
 
 @keyframes scroll-right {
     0% {
-        transform: translateX(-50%);
+        transform: translateX(0);
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateX(50%);
     }
 }
+
 
 .container-languages li,
 .container-technologies li {
