@@ -69,19 +69,30 @@ function initScrollAnimation() {
 function initMusicToggle() {
     const musicToggle = document.getElementById("music-toggle");
     const backgroundMusic = document.getElementById("background-music");
+
+    if (!musicToggle || !backgroundMusic) {
+        console.error("No se encontró el botón o el audio en el DOM.");
+        return;
+    }
+
     let isPlaying = false;
 
-    musicToggle.addEventListener("click", () => {
+    musicToggle.addEventListener("click", async () => {
         if (isPlaying) {
             backgroundMusic.pause();
-            musicToggle.textContent = "🔊";
+            musicToggle.textContent = "🔇"; // Apagado
         } else {
-            backgroundMusic.play();
-            musicToggle.textContent = "🔇";
+            try {
+                await backgroundMusic.play();
+                musicToggle.textContent = "🔊"; // Encendido
+            } catch (err) {
+                console.error("Error al reproducir audio:", err);
+            }
         }
         isPlaying = !isPlaying;
     });
 }
+
 
 function initMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
