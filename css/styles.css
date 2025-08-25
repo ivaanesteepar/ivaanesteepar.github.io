@@ -143,7 +143,6 @@ nav a:hover::after {
   width: 600px;
 }
 
-/* Contenedor de iconos */
 .container-languages ul,
 .container-technologies ul {
   display: flex;
@@ -404,6 +403,10 @@ main,
 footer {
   position: relative;
   z-index: 1;
+}
+
+.skills-group {
+    padding-top: 30px;
 }
 
 #studies {
