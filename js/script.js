@@ -157,36 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollArrow();
 });
 
-const containers = document.querySelectorAll('.container-languages ul, .container-technologies ul');
-
-containers.forEach(container => {
-    const speed = 0.5; // velocidad en px/frame
-    let offset = 0;
-
-    // clonar los elementos para que nunca falte nada
-    container.innerHTML += container.innerHTML;
-
-    // detectar si es el contenedor de tecnologías
-    const isTechnologiesContainer = container.closest('.container-technologies') !== null;
-
-    function animate() {
-        // dirección: mover a la derecha solo si es container-technologies
-        offset += isTechnologiesContainer ? speed : -speed;
-
-        // reinicio del offset
-        const halfWidth = container.scrollWidth / 2;
-        if (Math.abs(offset) >= halfWidth) {
-            offset = 0;
-        }
-
-        container.style.transform = `translateX(${offset}px)`;
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-});
-
 
 
 
