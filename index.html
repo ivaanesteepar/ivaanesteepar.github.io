@@ -1,190 +1,356 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iván Estépar | Software Engineer</title>
     <link rel="stylesheet" href="css/styles.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="particles-js"></div>
     <header>
-        <div class="nav-container">
-            <div class="logo">Mi Portfolio</div>
-            <button id="menu-toggle" aria-label="Abrir menú">☰</button>
-            <nav>
-                <a href="#about">Sobre mí</a>
-                <a href="#projects">Proyectos</a>
-                <a href="#contact">Contacto</a>
-            </nav>
-        </div>
+      <div class="nav-container">
+        <div class="logo">Mi Portfolio</div>
+        <button id="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav>
+          <a href="#about">Sobre mí</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#contact">Contacto</a>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section id="about">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="img/no-user.svg" alt="Iván" />
-                </div>
-                <div class="about-text">
-                    <h1>Iván Estépar</h1>
-                    <p>
-                        Ingeniero informático apasionado por el desarrollo de software,
-                        con experiencia en proyectos web y aplicaciones móviles.
-                        Me encanta aprender nuevas tecnologías y mejorar cada día.
-                    </p>
-                </div>
-            </div>
-
-            <div class="container-languages">
-                <h3>Lenguajes de programación</h3>
-                <div class="scroll-wrapper">
-                    <ul>
-                        <li><img src="img/java.svg" alt="Java" title="Java" width="40" height="40" /></li>
-                        <li><img src="img/kotlin.svg" alt="Kotlin" title="Kotlin" width="40" height="40" /></li>
-                        <li><img src="img/html.svg" alt="HTML5" title="HTML5" width="40" height="40" /></li>
-                        <li><img src="img/css.svg" alt="CSS3" title="CSS3" width="40" height="40" /></li>
-                        <li><img src="img/javascript.svg" alt="JavaScript" title="JavaScript" width="40" height="40" /></li>
-                        <li><img src="img/python.svg" alt="Python" title="Python" width="40" height="40" /></li>
-                        <li><img src="img/php.svg" alt="PHP" title="PHP" width="40" height="40" /></li>
-                        <li><img src="img/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" width="40" height="40" /></li>
-                        <li><img src="img/c.svg" alt="C" title="C" width="40" height="40" /></li>
-                        <li><img src="img/flask.svg" alt="Flask" title="Flask" width="40" height="40" /></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="container-technologies">
-                <h3>Otras tecnologías</h3>
-                <div class="scroll-wrapper">
-                    <ul>
-                        <li><img src="img/git.svg" alt="Git" title="Git" width="40" height="40" /></li>
-                        <li><img src="img/firebase.svg" alt="Firebase" title="Firebase" width="40" height="40" /></li>
-                        <li><img src="img/androidstudio.svg" alt="Android Studio" title="Android Studio" width="40"
-                                height="40" /></li>
-                        <li><img src="img/intellijidea.svg" alt="IntelliJ IDEA" title="IntelliJ IDEA" width="40"
-                                height="40" /></li>
-                        <li><img src="img/vscode.svg" alt="VS Code" title="VS Code" width="40" height="40" /></li>
-                        <li><img src="img/gitlab.svg" alt="GitLab" title="GitLab" width="40" height="40" /></li>
-                        <li><img src="img/github.svg" alt="GitHub" title="GitHub" width="40" height="40" /></li>
-                        <li><img src="img/linux.svg" alt="Linux" title="Linux" width="40" height="40" /></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <div class="scroll-arrow" id="scroll-arrow">
-            <span></span>
+      <section id="about">
+        <div class="about-container">
+          <div class="about-image">
+            <img src="img/no-user.svg" alt="Iván" />
+          </div>
+          <div class="about-text">
+            <h1>Iván Estépar</h1>
+            <p>
+              Ingeniero informático apasionado por el desarrollo de software,
+              con experiencia en proyectos web y aplicaciones móviles. Me
+              encanta aprender nuevas tecnologías y mejorar cada día.
+            </p>
+          </div>
         </div>
 
-        <section id="studies">
-            <h2>Estudios</h2>
-            <div class="studies-list">
-                <article class="study-item">
-                    <h3>Instituto Santa María la Nueva San José Artesano</h3>
-                    <span class="date">Septiembre 2015 - Junio 2019</span>
-                    <p>Educación secundaria obligatoria (ESO).</p>
-                </article>
-                <article class="study-item">
-                    <h3>Instituto Santa María la Nueva San José Artesano</h3>
-                    <span class="date">Septiembre 2019 - Junio 2021</span>
-                    <p>Bachillerato con especialización en tecnología y ciencias.</p>
-                </article>
-                <article class="study-item">
-                    <h3>Grado en Ingeniería Informática - Universidad de Burgos</h3>
-                    <span class="date">Septiembre 2021 - Junio 2025</span>
-                    <p>
-                        Formación completa en informática.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2>Experiencia</h2>
-            <div class="experience-list">
-
-                <article class="experience-item">
-                    <h3>Becario como Desarrollador Web Fullstack - CSA</h3>
-                    <span class="date">Abril 2025 - Agosto 2025</span>
-                    <p>
-                        Desarrollo y mantenimiento de aplicaciones web usando Drupal.
-                        Implementación de nuevas funcionalidades y optimización del rendimiento.
-                    </p>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Proyectos</h2>
-            <ul class="projects-list">
-                <li>
-                    <a href="https://github.com/ivaanesteepar/FlixFinderTV" target="_blank">
-                        <img src="img/projects-media/flixfindertv.png" alt="FlixFinderTV" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/ivaanesteepar/AniFinder" target="_blank">
-                        <img src="img/projects-media/anifinder.png" alt="Anime Search Web Engine" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/ivaanesteepar/Quantik" target="_blank">
-                        <img src="img/projects-media/quantik.jpg" alt="Quantik" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/ivaanesteepar/Linja" target="_blank">
-                        <img src="img/projects-media/linja.webp" alt="Linja" />
-                    </a>
-                </li>
+        <div class="container-languages">
+          <h3>Lenguajes de programación</h3>
+          <div class="scroll-wrapper">
+            <ul>
+              <li>
+                <img
+                  src="img/java.svg"
+                  alt="Java"
+                  title="Java"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/kotlin.svg"
+                  alt="Kotlin"
+                  title="Kotlin"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/html.svg"
+                  alt="HTML5"
+                  title="HTML5"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/css.svg"
+                  alt="CSS3"
+                  title="CSS3"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/javascript.svg"
+                  alt="JavaScript"
+                  title="JavaScript"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/python.svg"
+                  alt="Python"
+                  title="Python"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/php.svg"
+                  alt="PHP"
+                  title="PHP"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/postgresql.svg"
+                  alt="PostgreSQL"
+                  title="PostgreSQL"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img src="img/c.svg" alt="C" title="C" width="40" height="40" />
+              </li>
+              <li>
+                <img
+                  src="img/flask.svg"
+                  alt="Flask"
+                  title="Flask"
+                  width="40"
+                  height="40"
+                />
+              </li>
             </ul>
-        </section>
+          </div>
+        </div>
 
-        <section id="contact">
-            <h2>Contacto</h2>
-            <p>¿Tienes alguna pregunta o quieres ponerte en contacto? ¡Escríbeme y te responderé lo antes posible!</p>
-            <form id="contact-form" action="" method="POST">
-                <label for="name">Nombre:</label><br />
-                <input type="text" id="name" name="name" required /><br /><br />
+        <div class="container-technologies">
+          <h3>Otras tecnologías</h3>
+          <div class="scroll-wrapper">
+            <ul>
+              <li>
+                <img
+                  src="img/git.svg"
+                  alt="Git"
+                  title="Git"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/firebase.svg"
+                  alt="Firebase"
+                  title="Firebase"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/androidstudio.svg"
+                  alt="Android Studio"
+                  title="Android Studio"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/intellijidea.svg"
+                  alt="IntelliJ IDEA"
+                  title="IntelliJ IDEA"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/vscode.svg"
+                  alt="VS Code"
+                  title="VS Code"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/gitlab.svg"
+                  alt="GitLab"
+                  title="GitLab"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/github.svg"
+                  alt="GitHub"
+                  title="GitHub"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/linux.svg"
+                  alt="Linux"
+                  title="Linux"
+                  width="40"
+                  height="40"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-                <label for="email">Email:</label><br />
-                <input type="email" id="email" name="_replyto" required /><br /><br />
+      <div class="scroll-arrow" id="scroll-arrow">
+        <span></span>
+      </div>
 
-                <label for="message">Mensaje:</label><br />
-                <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+      <section id="studies">
+        <h2>Estudios</h2>
+        <div class="studies-list">
+          <article class="study-item">
+            <h3>Instituto Santa María la Nueva San José Artesano</h3>
+            <span class="date">Septiembre 2015 - Junio 2019</span>
+            <p>Educación secundaria obligatoria (ESO).</p>
+          </article>
+          <article class="study-item">
+            <h3>Instituto Santa María la Nueva San José Artesano</h3>
+            <span class="date">Septiembre 2019 - Junio 2021</span>
+            <p>Bachillerato con especialización en tecnología y ciencias.</p>
+          </article>
+          <article class="study-item">
+            <h3>Grado en Ingeniería Informática - Universidad de Burgos</h3>
+            <span class="date">Septiembre 2021 - Junio 2025</span>
+            <p>Formación completa en informática.</p>
+          </article>
+        </div>
+      </section>
 
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+      <section id="experience">
+        <h2>Experiencia</h2>
+        <div class="experience-list">
+          <article class="experience-item">
+            <h3>Becario como Desarrollador Web Fullstack - CSA</h3>
+            <span class="date">Abril 2025 - Agosto 2025</span>
+            <p>
+              Desarrollo y mantenimiento de aplicaciones web usando Drupal.
+              Implementación de nuevas funcionalidades y optimización del
+              rendimiento.
+            </p>
+          </article>
+        </div>
+      </section>
 
+      <section id="projects">
+        <h2>Proyectos</h2>
+        <ul class="projects-list">
+          <li class="reveal">
+            <a
+              href="https://github.com/ivaanesteepar/FlixFinderTV"
+              target="_blank"
+            >
+              <img
+                src="img/projects-media/flixfindertv.png"
+                alt="FlixFinderTV"
+              />
+            </a>
+          </li>
+          <li class="reveal">
+            <a
+              href="https://github.com/ivaanesteepar/AniFinder"
+              target="_blank"
+            >
+              <img
+                src="img/projects-media/anifinder.png"
+                alt="Anime Search Web Engine"
+              />
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="https://github.com/ivaanesteepar/Quantik" target="_blank">
+              <img src="img/projects-media/quantik.jpg" alt="Quantik" />
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="https://github.com/ivaanesteepar/Linja" target="_blank">
+              <img src="img/projects-media/linja.webp" alt="Linja" />
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section id="contact" class="reveal">
+        <h2>Contacto</h2>
+        <p>
+          ¿Tienes alguna pregunta o quieres ponerte en contacto? ¡Escríbeme y te
+          responderé lo antes posible!
+        </p>
+        <form id="contact-form" action="" method="POST">
+          <label for="name">Nombre:</label><br />
+          <input type="text" id="name" name="name" required /><br /><br />
+          <label for="email">Email:</label><br />
+          <input type="email" id="email" name="_replyto" required /><br /><br />
+          <label for="message">Mensaje:</label><br />
+          <textarea id="message" name="message" rows="5" required></textarea
+          ><br /><br />
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
     </main>
 
-    <footer style="text-align: center; padding: 20px;">
-        <div class="social-icons" style="margin-bottom: 10px;">
-            <a href="https://instagram.com/ivaanesteepar" target="_blank" rel="noopener" style="margin: 0 10px;">
-                <img src="img/social-media/instagram.svg" alt="Instagram" width="40" height="40" />
-            </a>
-            <a href="https://www.linkedin.com/in/iván-estépar-a95206233" target="_blank" rel="noopener"
-                style="margin: 0 10px;">
-                <img src="img/social-media/linkedin.svg" alt="LinkedIn" width="40" height="40" />
-            </a>
-            <a href="https://github.com/ivaanesteepar" target="_blank" rel="noopener" class="github-icon"
-                style="margin: 0 10px;">
-                <img src="img/github.svg" alt="Github" width="40" height="40" />
-            </a>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Iván Estépar. Todos los derechos reservados.
-        </div>
+    <footer style="text-align: center; padding: 20px">
+      <div class="social-icons" style="margin-bottom: 10px">
+        <a
+          href="https://instagram.com/ivaanesteepar"
+          target="_blank"
+          rel="noopener"
+          style="margin: 0 10px"
+        >
+          <img
+            src="img/social-media/instagram.svg"
+            alt="Instagram"
+            width="40"
+            height="40"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/iván-estépar-a95206233"
+          target="_blank"
+          rel="noopener"
+          style="margin: 0 10px"
+        >
+          <img
+            src="img/social-media/linkedin.svg"
+            alt="LinkedIn"
+            width="40"
+            height="40"
+          />
+        </a>
+        <a
+          href="https://github.com/ivaanesteepar"
+          target="_blank"
+          rel="noopener"
+          class="github-icon"
+          style="margin: 0 10px"
+        >
+          <img src="img/github.svg" alt="Github" width="40" height="40" />
+        </a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Iván Estépar. Todos los derechos reservados.
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/script.js"></script>
-
-</body>
-
+  </body>
 </html>

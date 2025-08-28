@@ -96,25 +96,6 @@ function initMobileMenu() {
     });
 }
 
-function initScrollArrow() {
-    const arrow = document.getElementById("scroll-arrow");
-    if (!arrow) {
-        return;
-    }
-
-    function checkArrowVisibility() {
-        if (window.scrollY > 5) {
-            arrow.classList.add("hidden");
-        } else {
-            arrow.classList.remove("hidden");
-        }
-    }
-
-    // Revisar al cargar y en scroll
-    checkArrowVisibility();
-    window.addEventListener("scroll", checkArrowVisibility);
-}
-
 
 // Añade la animación al main cuando se entra a la página
 document.addEventListener('DOMContentLoaded', () => {
@@ -134,5 +115,30 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initScrollAnimation();
     initMobileMenu();
-    initScrollArrow();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.parentElement.classList.contains("projects-list")) {
+          const items = entry.target.parentElement.querySelectorAll("li");
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add("active");
+            }, index * 200); // 200ms de diferencia entre cada tarjeta
+          });
+          observer.unobserve(entry.target); 
+        } else {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+
+  reveals.forEach(el => observer.observe(el));
+});
+
