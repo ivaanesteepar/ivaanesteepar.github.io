@@ -126,11 +126,13 @@ nav a:hover::after {
 #studies h2 {
   transform: translateX(-20px);
   padding-bottom: 20px;
+  color: #61dafb;
 }
 
 #experience h2 {
   transform: translateX(-20px);
   padding-bottom: 20px;
+  color: #61dafb;
 }
 
 .container-languages,
@@ -263,6 +265,12 @@ nav a:hover::after {
 
 #projects h2 {
   padding-bottom: 20px;
+  color: #61dafb;
+}
+
+#contact h2 {
+  padding-top: 20px;
+  color: #61dafb;
 }
 
 .projects-list li {
@@ -309,14 +317,13 @@ nav a:hover::after {
 }
 
 /* Sección contacto */
-#contact {
+.contact-info {
   width: 600px;
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
   border: 2px solid rgba(97, 218, 251, 0.8);
   border-radius: 8px;
-  margin: 50px auto 0 auto;
-  opacity: 0;
+  margin: 0 auto 0 auto;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
@@ -326,15 +333,10 @@ nav a:hover::after {
   transform: translateY(0);
 }
 
-#contact h2 {
-  padding-top: 30px;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
 #contact p {
-  max-width: 450px;
-  margin: 0 auto;
+  margin-top: 40px;
+  text-align: center;
+  padding: 0 50px;
 }
 
 /* Formulario */
