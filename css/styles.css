@@ -217,6 +217,7 @@ nav a:hover::after {
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #61dafb;
+  object-position: center 20%;
 }
 
 .about-text h1 {
@@ -286,7 +287,6 @@ nav a:hover::after {
 .projects-list li:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
 }
 
 #projects .projects-list img {
@@ -467,7 +467,7 @@ footer {
 .experience-item::before {
   content: "";
   position: absolute;
-  top: 20px;
+  top: 24px;
   left: -29px;
   width: 16px;
   height: 16px;
@@ -506,7 +506,7 @@ footer {
   position: relative;
   border-radius: 8px;
   padding: 20px 25px 20px 40px;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
   opacity: 0;
   transform: translateX(-30px);
   transition: all 0.6s ease-out;
@@ -595,6 +595,11 @@ main > *:nth-child(5) {
 
 .copyright {
   padding-top: 20px;
+}
+
+.scroll-wrapper2 {
+  display: flex;
+  justify-content: center;
 }
 
 /* Responsive */
@@ -759,7 +764,7 @@ main > *:nth-child(5) {
   .container-technologies {
     width: 100%;
     padding: 10px 10px 20px 10px;
-    overflow-x: auto; /* Scroll horizontal en el contenedor */
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE 10+ */
@@ -768,12 +773,12 @@ main > *:nth-child(5) {
   .container-languages ul,
   .container-technologies ul {
     display: flex;
-    flex-wrap: nowrap; /* los ítems no saltan a otra línea */
+    flex-wrap: nowrap;
     gap: 16px;
     margin: 0;
     padding: 10px 0;
     list-style: none;
-    min-width: max-content; /* ancho según contenido */
+    min-width: max-content;
   }
 
   .container-languages ul::-webkit-scrollbar,
@@ -783,8 +788,8 @@ main > *:nth-child(5) {
 
   .container-languages ul li,
   .container-technologies ul li {
-    flex: 0 0 auto; /* tamaño fijo de los ítems */
-    scroll-snap-align: start; /* snap en cada ítem */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
 
   .container-languages ul li img,
@@ -801,8 +806,9 @@ main > *:nth-child(5) {
     padding-bottom: 10px;
   }
 
-  .scroll-wrapper {
-    overflow-x: auto; /* solo la lista se desplaza */
+  .scroll-wrapper,
+  .scroll-wrapper2 {
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
     scrollbar-width: none; /* Firefox */
   }
@@ -829,6 +835,11 @@ main > *:nth-child(5) {
   .scroll-wrapper ul li img {
     width: 30px;
     height: 30px;
+  }
+
+  .scroll-wrapper2 {
+    display: flex;
+    justify-content: center;
   }
 }
 
