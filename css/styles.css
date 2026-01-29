@@ -608,6 +608,7 @@ main > *:nth-child(5) {
   padding-top: 20px;
 }
 
+.scroll-wrapper,
 .scroll-wrapper2 {
   display: flex;
   justify-content: center;
