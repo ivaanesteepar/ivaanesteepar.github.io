@@ -129,24 +129,21 @@ function initReveal() {
 
 // ---------------- EMAILJS FORM ----------------
 function initEmailJS() {
-  // Inicializa EmailJS
-  emailjs.init("S5aqOWbHnujFO10Zn");
+  emailjs.init(EMAILJS_PUBLIC_KEY);
 
   const form = document.getElementById("contact-form");
   if (!form) return;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    emailjs
-      .sendForm("service_ldtle0j", "template_ysiroym", this)
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
       .then(() => {
-        alert("Mensaje enviado correctamente. ¡Gracias por contactarme!");
+        alert("Mensaje enviado correctamente");
         form.reset();
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        alert("Error al enviar el mensaje. Inténtalo más tarde.");
+        alert("Error al enviar el mensaje");
       });
   });
 }
@@ -158,7 +155,6 @@ window.addEventListener("load", () => {
 
 // Carga las animaciones cuando se recarga la página
 window.addEventListener("load", initScrollAnimation);
-
 
 // Función principal que se ejecuta al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
