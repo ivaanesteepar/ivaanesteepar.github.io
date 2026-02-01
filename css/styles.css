@@ -11,7 +11,6 @@ main {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-
   gap: 60px;
 }
 
@@ -23,7 +22,6 @@ main section {
 html,
 body {
   width: 100%;
-  overflow-x: hidden;
   color: white;
 }
 
@@ -34,7 +32,8 @@ header {
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   height: 80px;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
@@ -90,7 +89,9 @@ nav a {
   font-weight: 600;
   font-size: 1rem;
   overflow: hidden;
-  transition: color 0.15s ease, text-shadow 0.15s ease;
+  transition:
+    color 0.15s ease,
+    text-shadow 0.15s ease;
 }
 
 nav a::after {
@@ -109,7 +110,10 @@ nav a::after {
 
 nav a:hover {
   color: #61dafb;
-  text-shadow: 0 0 5px #61dafb, 0 0 10px #61dafb, 0 0 15px #61dafb;
+  text-shadow:
+    0 0 5px #61dafb,
+    0 0 10px #61dafb,
+    0 0 15px #61dafb;
 }
 
 nav a:hover::after {
@@ -286,7 +290,9 @@ nav a:hover::after {
   box-sizing: border-box;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out,
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out,
     box-shadow 0.3s ease;
 }
 
@@ -331,9 +337,10 @@ nav a:hover::after {
   margin: 0 auto;
   margin-bottom: 50px;
   transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
-
 
 #contact.active {
   opacity: 1;
@@ -576,10 +583,12 @@ nav.open {
 main > * {
   opacity: 0;
   transform: translateY(30px);
-  animation-name: fadeInUp;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+main > *.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Delays escalonados para cada sección */
@@ -650,6 +659,12 @@ main > *:nth-child(5) {
     color: white;
     display: block;
     padding-right: 30px;
+  }
+
+  .scroll-wrapper,
+  .scroll-wrapper2 {
+    display: flex;
+    justify-content: start;
   }
 
   /* Reduce márgenes laterales y verticales en main */
@@ -845,11 +860,6 @@ main > *:nth-child(5) {
   .scroll-wrapper ul li img {
     width: 30px;
     height: 30px;
-  }
-
-  .scroll-wrapper2 {
-    display: flex;
-    justify-content: center;
   }
 }
 

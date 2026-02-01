@@ -127,6 +127,24 @@ function initReveal() {
   reveals.forEach((el) => observer.observe(el));
 }
 
+function initMainReveal() {
+  const sections = document.querySelectorAll("main > *");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
 // ---------------- EMAILJS FORM ----------------
 function initEmailJS() {
   emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -166,5 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimation();
   initMobileMenu();
   initReveal();
+  initMainReveal();
   initEmailJS();
 });
