@@ -276,8 +276,8 @@ nav a:hover::after {
 }
 
 #contact h2 {
-  padding-top: 20px;
   color: #61dafb;
+  margin-top: 20px;
 }
 
 .projects-list li {
@@ -348,7 +348,7 @@ nav a:hover::after {
 }
 
 #contact p {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
   padding: 0 50px;
 }
@@ -515,7 +515,7 @@ footer {
   padding-left: 40px;
   padding-top: 30px;
   max-width: 600px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 80px auto;
 }
 
 /* Cada item */
@@ -752,7 +752,6 @@ main > *:nth-child(5) {
     margin-top: 20px;
   }
 
-  /* Inputs y textarea ocupan todo el ancho posible */
   form#contact-form input,
   form#contact-form textarea {
     width: 100%;
@@ -766,15 +765,10 @@ main > *:nth-child(5) {
     margin-bottom: 20px;
   }
 
-  #contact h2 {
-    margin-top: 25px;
-  }
-
   #contact p {
-    padding: 10px;
+    padding: 5px;
   }
 
-  /* Botón más grande y con padding para mejor tactilidad */
   form#contact-form button {
     padding: 14px 20px;
     font-size: 1.1rem;

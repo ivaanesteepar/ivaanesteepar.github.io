@@ -154,7 +154,32 @@ function initEmailJS() {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+
+    const emailInput = form.querySelector('input[name="email"]');
+    const messageInput = form.querySelector('textarea[name="message"]');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.com$/;
+
+    // Validaciones
+    if (!emailRegex.test(email)) {
+      alert("Solo se permiten correos Gmail o Hotmail");
+      return;
+    }
+
+    if (message.length < 10) {
+      alert("El mensaje debe tener al menos 10 caracteres");
+      return;
+    }
+
+    // Anti-spam básico
+    submitButton.disabled = true;
+
+    emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
       .then(() => {
         alert("Mensaje enviado correctamente");
         form.reset();
@@ -162,6 +187,9 @@ function initEmailJS() {
       .catch((error) => {
         console.error("EmailJS error:", error);
         alert("Error al enviar el mensaje");
+      })
+      .finally(() => {
+        submitButton.disabled = false;
       });
   });
 }
