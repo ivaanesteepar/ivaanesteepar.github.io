@@ -139,7 +139,7 @@ function initMainReveal() {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
 
   sections.forEach((section) => observer.observe(section));
@@ -196,22 +196,24 @@ function initEmailJS() {
 
 // Hace scroll up si se recarga la página
 window.addEventListener("load", () => {
-  window.scrollTo(0, 0);
-});
+  // Forzar scroll arriba después de que todo esté cargado
+  setTimeout(() => window.scrollTo(0, 0), 10);
 
-// Carga las animaciones cuando se recarga la página
-window.addEventListener("load", initScrollAnimation);
+  // Activar todas las secciones principales para evitar que aparezcan desplazadas
+  document.querySelectorAll("main > *").forEach((el) => el.classList.add("active"));
+
+  // Inicializar animaciones y reveal on scroll
+  initScrollAnimation();
+  initReveal();
+  initMainReveal();
+
+  // Inicializar otras funcionalidades
+  initParticles();
+  initMobileMenu();
+  initEmailJS();
+});
 
 // Función principal que se ejecuta al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
-  // Animación principal del main
-  document.querySelector("main").classList.add("fadeInUp");
-
-  // Inicialización de funcionalidades
-  initParticles();
-  initScrollAnimation();
-  initMobileMenu();
-  initReveal();
-  initMainReveal();
-  initEmailJS();
+  console.log("DOM listo");
 });
