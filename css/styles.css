@@ -275,7 +275,7 @@ nav a:hover::after {
 
 #contact h2 {
   color: #61dafb;
-  margin-top: 20px;
+  margin: 0;
 }
 
 .projects-list li {
@@ -771,7 +771,6 @@ main > *:nth-child(5) {
 
   main section h2 {
     display: inline-block;
-    border-bottom: 1px solid #fff;
     padding-bottom: 5px;
     margin-bottom: 20px;
   }
