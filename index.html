@@ -88,6 +88,15 @@
               </li>
               <li>
                 <img
+                  src="img/typescript.svg"
+                  alt="TypeScript"
+                  title="TypeScript"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
                   src="img/python.svg"
                   alt="Python"
                   title="Python"
@@ -97,18 +106,9 @@
               </li>
               <li>
                 <img
-                  src="img/php.svg"
-                  alt="PHP"
-                  title="PHP"
-                  width="40"
-                  height="40"
-                />
-              </li>
-              <li>
-                <img
-                  src="img/postgresql.svg"
-                  alt="PostgreSQL"
-                  title="PostgreSQL"
+                  src="img/sql.svg"
+                  alt="SQL"
+                  title="SQL"
                   width="40"
                   height="40"
                 />
@@ -129,6 +129,15 @@
                   src="img/git.svg"
                   alt="Git"
                   title="Git"
+                  width="40"
+                  height="40"
+                />
+              </li>
+              <li>
+                <img
+                  src="img/angular.svg"
+                  alt="Angular"
+                  title="Angular"
                   width="40"
                   height="40"
                 />
@@ -249,6 +258,18 @@
               experiencia de usuario y el rendimiento de las aplicaciones.
             </p>
           </article>
+          <article class="experience-item">
+            <h3>Desarrollador Frontend - Softeca</h3>
+            <span class="date">Febrero 2026 - Actualidad</span>
+            <p>
+              Desarrollo frontend con Angular en proyectos empresariales,
+              participando en la implementación de nuevos módulos y
+              funcionalidades. Desarrollo de un ERP utilizando Angular,
+              actualización y migración de un proyecto desde Angular 9 hasta
+              Angular 21, y realización del restyling de una aplicación,
+              mejorando su interfaz y experiencia de usuario.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -299,12 +320,33 @@
           </p>
           <form id="contact-form" action="" method="POST">
             <label for="name">Nombre:</label><br />
-            <input type="text" id="name" name="name" required /><br /><br />
+            <input
+              class="contact-input"
+              type="text"
+              id="name"
+              name="name"
+              required
+            /><br /><br />
+
             <label for="email">Email:</label><br />
-            <input type="email" id="email" name="email" required /><br /><br />
+            <input
+              class="contact-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            /><br /><br />
+
             <label for="message">Mensaje:</label><br />
-            <textarea id="message" name="message" rows="5" required></textarea
+            <textarea
+              class="contact-input"
+              id="message"
+              name="message"
+              rows="5"
+              required
+            ></textarea
             ><br /><br />
+
             <button type="submit">Enviar</button>
           </form>
         </div>
@@ -350,7 +392,8 @@
         </a>
       </div>
       <div class="copyright">
-        &copy; 2025 Iván Estépar. Todos los derechos reservados.
+        &copy; <span id="year"></span> Iván Estépar. Todos los derechos
+        reservados.
       </div>
     </footer>
 
@@ -358,5 +401,8 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>

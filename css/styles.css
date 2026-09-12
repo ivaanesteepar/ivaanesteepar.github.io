@@ -25,7 +25,6 @@ body {
   color: white;
 }
 
-/* Header y navegación */
 header {
   display: flex;
   background-color: #050608;
@@ -256,7 +255,6 @@ nav a:hover::after {
   transform: scale(1.1);
 }
 
-/* Sección proyectos */
 .projects-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -330,7 +328,7 @@ nav a:hover::after {
   max-width: 600px;
   width: 100%;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
   border: 2px solid rgba(97, 218, 251, 0.8);
   border-radius: 8px;
@@ -340,6 +338,18 @@ nav a:hover::after {
   transition:
     opacity 0.8s ease-out,
     transform 0.8s ease-out;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
+  border: 2px solid rgba(97, 218, 251, 0.8);
+  font-family: inherit;
+  font-size: 16px;
 }
 
 #contact.active {
@@ -353,7 +363,6 @@ nav a:hover::after {
   padding: 0 50px;
 }
 
-/* Formulario */
 form#contact-form {
   display: flex;
   flex-direction: column;
@@ -368,7 +377,6 @@ form#contact-form label {
 form#contact-form input,
 form#contact-form textarea {
   padding: 8px 10px;
-  border: 3px solid black;
   border-radius: 4px;
   font-size: 1rem;
   resize: vertical;
@@ -436,7 +444,6 @@ footer {
   height: 100vh;
   z-index: 0;
   background-color: rgb(25, 25, 51);
-  /* Fondo de la página */
 }
 
 main,
@@ -456,7 +463,6 @@ footer {
   margin: 0 auto 60px auto;
 }
 
-/* Línea vertical */
 .studies-list::before,
 .experience-list::before {
   content: "";
@@ -468,7 +474,6 @@ footer {
   border-radius: 2px;
 }
 
-/* Cada item */
 .study-item {
   position: relative;
   border-radius: 8px;
@@ -479,7 +484,6 @@ footer {
   transition: all 0.6s ease-out;
 }
 
-/* Punto en la línea para cada estudio */
 .study-item::before,
 .experience-item::before {
   content: "";
@@ -494,7 +498,6 @@ footer {
   box-shadow: 0 0 0 3px #61dafb;
 }
 
-/* Fecha */
 .study-item .date {
   font-size: 0.9rem;
   color: #bbb;
@@ -504,7 +507,6 @@ footer {
   display: block;
 }
 
-/* Animación para mostrar (clase activa) */
 .study-item.active {
   opacity: 1;
   transform: translateX(0);
@@ -518,7 +520,6 @@ footer {
   margin: 0 auto 80px auto;
 }
 
-/* Cada item */
 .experience-item {
   position: relative;
   border-radius: 8px;
@@ -529,7 +530,6 @@ footer {
   transition: all 0.6s ease-out;
 }
 
-/* Fecha */
 .experience-item .date {
   font-size: 0.9rem;
   color: #bbb;
@@ -539,7 +539,6 @@ footer {
   display: block;
 }
 
-/* Animación para mostrar (clase activa) */
 .experience-item.active {
   opacity: 1;
   transform: translateX(0);
@@ -583,7 +582,9 @@ nav.open {
 main > * {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 main > *.active {
@@ -591,7 +592,6 @@ main > *.active {
   transform: translateY(0);
 }
 
-/* Delays escalonados para cada sección */
 main > *:nth-child(1) {
   animation-delay: 0.2s;
 }
@@ -622,7 +622,6 @@ main > *:nth-child(5) {
   justify-content: center;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   nav {
     position: fixed;
@@ -630,7 +629,7 @@ main > *:nth-child(5) {
     right: 0;
     width: 200px;
     background-color: #050608;
-    display: none;
+    display: flex;
     flex-direction: column;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
     border-radius: 0 0 0 10px;
@@ -638,6 +637,23 @@ main > *:nth-child(5) {
     z-index: 10000;
     align-items: center;
     text-align: center;
+
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease,
+      visibility 0.35s ease;
+  }
+
+  nav.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   nav a {
@@ -667,13 +683,11 @@ main > *:nth-child(5) {
     justify-content: start;
   }
 
-  /* Reduce márgenes laterales y verticales en main */
   main {
     margin: 20px 15px;
     padding: 0 15px;
   }
 
-  /* Secciones max-width más pequeñas */
   main section {
     max-width: 100%;
     padding: 0 10px;
@@ -713,14 +727,12 @@ main > *:nth-child(5) {
     display: none;
   }
 
-  /* Ajusta tamaño de fuente para textos */
   #about p,
   .projects-list,
   nav a {
     font-size: 0.9rem;
   }
 
-  /* Ajusta tamaño y padding del logo */
   .logo {
     font-size: 1.3rem;
     padding-left: 30px;
@@ -745,7 +757,6 @@ main > *:nth-child(5) {
     color: white;
   }
 
-  /* Contact form ocupa casi todo el ancho */
   form#contact-form {
     max-width: 100%;
     padding: 10px;
@@ -784,9 +795,9 @@ main > *:nth-child(5) {
     width: 100%;
     padding: 10px 10px 20px 10px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .container-languages ul,
@@ -802,7 +813,7 @@ main > *:nth-child(5) {
 
   .container-languages ul::-webkit-scrollbar,
   .container-technologies ul::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
   }
 
   .container-languages ul li,
@@ -828,12 +839,12 @@ main > *:nth-child(5) {
   .scroll-wrapper,
   .scroll-wrapper2 {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
-    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
   .scroll-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
   }
 
   .scroll-wrapper ul {
@@ -857,7 +868,6 @@ main > *:nth-child(5) {
   }
 }
 
-/* Especial para web */
 @media (min-width: 768px) {
   .about-text {
     padding-left: 20px;

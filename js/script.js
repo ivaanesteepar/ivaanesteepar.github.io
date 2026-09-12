@@ -37,7 +37,6 @@ function initParticles() {
   });
 }
 
-// Añade la clase 'active' a los elementos de experiencia que están en vista (animación al hacer scroll)
 function initScrollAnimation() {
   const experienceItems = document.querySelectorAll(".experience-item");
   const studyItems = document.querySelectorAll(".study-item");
@@ -47,6 +46,7 @@ function initScrollAnimation() {
 
     experienceItems.forEach((item) => {
       const positionFromTop = item.getBoundingClientRect().top;
+
       if (positionFromTop - windowHeight <= -100) {
         item.classList.add("active");
       }
@@ -54,6 +54,7 @@ function initScrollAnimation() {
 
     studyItems.forEach((item) => {
       const positionFromTop = item.getBoundingClientRect().top;
+
       if (positionFromTop - windowHeight <= -100) {
         item.classList.add("active");
       }
@@ -61,7 +62,7 @@ function initScrollAnimation() {
   }
 
   window.addEventListener("scroll", checkPosition);
-  checkPosition(); // Activar al cargar la página
+  checkPosition();
 }
 
 function initMobileMenu() {
@@ -70,19 +71,21 @@ function initMobileMenu() {
 
   if (!menuToggle || !nav) return;
 
-  // Función para saber si el botón es visible (está en móvil)
   function isMenuToggleVisible() {
     return window.getComputedStyle(menuToggle).display !== "none";
   }
 
   menuToggle.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (!isMenuToggleVisible()) return; // Si botón no visible, no hacemos nada
+
+    if (!isMenuToggleVisible()) return;
+
     nav.classList.toggle("open");
   });
 
   document.addEventListener("click", (e) => {
-    if (!isMenuToggleVisible()) return; // Solo cerrar si botón visible
+    if (!isMenuToggleVisible()) return;
+
     if (
       nav.classList.contains("open") &&
       !nav.contains(e.target) &&
@@ -94,13 +97,13 @@ function initMobileMenu() {
 
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      if (!isMenuToggleVisible()) return; // Solo cerrar si botón visible
+      if (!isMenuToggleVisible()) return;
+
       nav.classList.remove("open");
     });
   });
 }
 
-// ---------------- REVEAL ON SCROLL ----------------
 function initReveal() {
   const reveals = document.querySelectorAll(".reveal");
 
@@ -110,9 +113,11 @@ function initReveal() {
         if (entry.isIntersecting) {
           if (entry.target.parentElement.classList.contains("projects-list")) {
             const items = entry.target.parentElement.querySelectorAll("li");
+
             items.forEach((item, index) => {
-              setTimeout(() => item.classList.add("active"), index * 200); // 200ms entre cada tarjeta
+              setTimeout(() => item.classList.add("active"), index * 200);
             });
+
             observer.unobserve(entry.target);
           } else {
             entry.target.classList.add("active");
@@ -145,11 +150,11 @@ function initMainReveal() {
   sections.forEach((section) => observer.observe(section));
 }
 
-// ---------------- EMAILJS FORM ----------------
 function initEmailJS() {
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
   const form = document.getElementById("contact-form");
+
   if (!form) return;
 
   form.addEventListener("submit", function (e) {
@@ -164,7 +169,6 @@ function initEmailJS() {
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.com$/;
 
-    // Validaciones
     if (!emailRegex.test(email)) {
       alert("Solo se permiten correos Gmail o Hotmail");
       return;
@@ -175,7 +179,6 @@ function initEmailJS() {
       return;
     }
 
-    // Anti-spam básico
     submitButton.disabled = true;
 
     emailjs
@@ -194,26 +197,17 @@ function initEmailJS() {
   });
 }
 
-// Hace scroll up si se recarga la página
 window.addEventListener("load", () => {
-  // Forzar scroll arriba después de que todo esté cargado
   setTimeout(() => window.scrollTo(0, 0), 10);
 
-  // Activar todas las secciones principales para evitar que aparezcan desplazadas
-  document.querySelectorAll("main > *").forEach((el) => el.classList.add("active"));
+  document
+    .querySelectorAll("main > *")
+    .forEach((el) => el.classList.add("active"));
 
-  // Inicializar animaciones y reveal on scroll
   initScrollAnimation();
   initReveal();
   initMainReveal();
-
-  // Inicializar otras funcionalidades
   initParticles();
   initMobileMenu();
   initEmailJS();
-});
-
-// Función principal que se ejecuta al cargar el DOM
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM listo");
 });
