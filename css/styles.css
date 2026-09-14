@@ -25,7 +25,6 @@ main section h2 {
   display: inline-block;
 }
 
-
 html,
 body {
   width: 100%;
@@ -388,12 +387,10 @@ nav a:hover::after {
     transform 0.7s ease;
 }
 
-
 .projects-list li:hover {
   transform: translateY(0) scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
-
 
 #projects .projects-list img {
   width: 100%;
@@ -566,26 +563,6 @@ footer {
   transform: translateX(0);
 }
 
-
-.study-item {
-  position: relative;
-  border-radius: 8px;
-  padding: 20px 25px 20px 40px;
-  margin-bottom: 70px;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-}
-
-.study-item.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
 .study-item::before,
 .experience-item::before {
   content: "";
@@ -614,6 +591,11 @@ footer {
 
 .study-item,
 .experience-item {
+  position: relative;
+  border-radius: 8px;
+  padding: 20px 25px 20px 40px;
+  margin-bottom: 70px;
+
   opacity: 0;
   transform: translateX(-40px);
 
@@ -645,25 +627,6 @@ footer {
   max-width: 600px;
   margin: 0 auto;
 }
-
-.experience-item {
-  position: relative;
-  border-radius: 8px;
-  padding: 20px 25px 20px 40px;
-  margin-bottom: 70px;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-}
-
-.experience-item.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 .experience-item .date {
   font-size: 0.9rem;
@@ -712,7 +675,6 @@ nav.open {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 
 @media (max-width: 600px) {
@@ -883,7 +845,6 @@ nav.open {
     overflow-x: hidden;
     overflow-y: visible;
   }
-
 
   .container-languages ul,
   .container-technologies ul {
