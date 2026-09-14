@@ -37,34 +37,6 @@ function initParticles() {
   });
 }
 
-function initScrollAnimation() {
-  const experienceItems = document.querySelectorAll(".experience-item");
-  const studyItems = document.querySelectorAll(".study-item");
-
-  function checkPosition() {
-    const windowHeight = window.innerHeight;
-
-    experienceItems.forEach((item) => {
-      const positionFromTop = item.getBoundingClientRect().top;
-
-      if (positionFromTop - windowHeight <= -100) {
-        item.classList.add("active");
-      }
-    });
-
-    studyItems.forEach((item) => {
-      const positionFromTop = item.getBoundingClientRect().top;
-
-      if (positionFromTop - windowHeight <= -100) {
-        item.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", checkPosition);
-  checkPosition();
-}
-
 function initMobileMenu() {
   const menuToggle = document.getElementById("menu-toggle");
   const nav = document.querySelector("nav");
@@ -111,43 +83,18 @@ function initReveal() {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target.parentElement.classList.contains("projects-list")) {
-            const items = entry.target.parentElement.querySelectorAll("li");
-
-            items.forEach((item, index) => {
-              setTimeout(() => item.classList.add("active"), index * 200);
-            });
-
-            observer.unobserve(entry.target);
-          } else {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
         }
       });
     },
-    { threshold: 0.2 },
+    {
+      threshold: 0.2,
+    }
   );
 
   reveals.forEach((el) => observer.observe(el));
-}
-
-function initMainReveal() {
-  const sections = document.querySelectorAll("main > *");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 },
-  );
-
-  sections.forEach((section) => observer.observe(section));
 }
 
 function initEmailJS() {
@@ -163,19 +110,21 @@ function initEmailJS() {
     const emailInput = form.querySelector('input[name="email"]');
     const messageInput = form.querySelector('textarea[name="message"]');
     const submitButton = form.querySelector('button[type="submit"]');
+    const formError = document.getElementById("form-error");
 
     const email = emailInput.value.trim();
     const message = messageInput.value.trim();
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.com$/;
+    // Restaurar estilo de error
+    formError.textContent = "";
+    formError.classList.remove("form-success");
+    formError.classList.add("form-error");
 
-    if (!emailRegex.test(email)) {
-      alert("Solo se permiten correos Gmail o Hotmail");
-      return;
-    }
-
+    // Validar mensaje
     if (message.length < 10) {
-      alert("El mensaje debe tener al menos 10 caracteres");
+      formError.textContent =
+        "El mensaje debe tener al menos 10 caracteres.";
+      messageInput.focus();
       return;
     }
 
@@ -184,12 +133,21 @@ function initEmailJS() {
     emailjs
       .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
       .then(() => {
-        alert("Mensaje enviado correctamente");
         form.reset();
+
+        formError.classList.remove("form-error");
+        formError.classList.add("form-success");
+
+        formError.textContent = "Mensaje enviado correctamente.";
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        alert("Error al enviar el mensaje");
+
+        formError.classList.remove("form-success");
+        formError.classList.add("form-error");
+
+        formError.textContent =
+          "No se ha podido enviar el mensaje. Inténtalo de nuevo.";
       })
       .finally(() => {
         submitButton.disabled = false;
@@ -197,17 +155,59 @@ function initEmailJS() {
   });
 }
 
+function updateTimeline() {
+  const timelines = document.querySelectorAll(
+    ".studies-list, .experience-list"
+  );
+
+  timelines.forEach((timeline) => {
+    const items = timeline.querySelectorAll(
+      ".study-item, .experience-item"
+    );
+
+    if (!items.length) return;
+
+    const timelineRect = timeline.getBoundingClientRect();
+    const triggerPoint = window.innerHeight * 0.75;
+
+    const progress = triggerPoint - timelineRect.top;
+
+    const maxHeight = timeline.offsetHeight;
+
+    const lineHeight = Math.max(
+      0,
+      Math.min(progress, maxHeight)
+    );
+
+    timeline.style.setProperty(
+      "--timeline-height",
+      `${lineHeight}px`
+    );
+
+    items.forEach((item) => {
+      const itemRect = item.getBoundingClientRect();
+
+      if (itemRect.top < triggerPoint) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+  });
+}
+
+
+window.addEventListener("scroll", updateTimeline);
+window.addEventListener("resize", updateTimeline);
+
+
 window.addEventListener("load", () => {
   setTimeout(() => window.scrollTo(0, 0), 10);
 
-  document
-    .querySelectorAll("main > *")
-    .forEach((el) => el.classList.add("active"));
-
-  initScrollAnimation();
   initReveal();
-  initMainReveal();
   initParticles();
   initMobileMenu();
   initEmailJS();
+  updateTimeline();
 });
+

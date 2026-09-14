@@ -19,6 +19,13 @@ main section {
   text-align: center;
 }
 
+main section h2 {
+  color: #61dafb;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+
 html,
 body {
   width: 100%;
@@ -64,6 +71,7 @@ header {
 }
 
 @keyframes blink {
+
   0%,
   50% {
     opacity: 1;
@@ -129,15 +137,29 @@ nav a:hover::after {
   }
 }
 
-#studies h2 {
+.form-error {
+  display: block;
+  color: #ff5c5c;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.form-success {
+  display: block;
+  color: #4caf50;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+#studies h2,
+#experience h2 {
   transform: translateX(-20px);
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   color: #61dafb;
 }
 
-#experience h2 {
-  transform: translateX(-20px);
-  padding-bottom: 20px;
+#contact h2 {
+  padding-bottom: 30px;
   color: #61dafb;
 }
 
@@ -268,16 +290,6 @@ nav a:hover::after {
   max-width: 550px;
 }
 
-#projects h2 {
-  padding-bottom: 20px;
-  color: #61dafb;
-}
-
-#contact h2 {
-  color: #61dafb;
-  margin: 0;
-}
-
 .projects-list li {
   background-color: #f0f0f0;
   border-radius: 8px;
@@ -286,23 +298,18 @@ nav a:hover::after {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(40px);
   transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
-.projects-list li.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .projects-list li:hover {
-  transform: scale(1.05);
+  transform: translateY(0) scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
+
 
 #projects .projects-list img {
   width: 100%;
@@ -323,7 +330,6 @@ nav a:hover::after {
   box-sizing: border-box;
 }
 
-/* Sección contacto */
 .contact-info {
   max-width: 600px;
   width: 100%;
@@ -332,12 +338,7 @@ nav a:hover::after {
   box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
   border: 2px solid rgba(97, 218, 251, 0.8);
   border-radius: 8px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  transform: translateY(40px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
+  margin: 0 auto 50px auto;
 }
 
 .contact-input {
@@ -350,11 +351,6 @@ nav a:hover::after {
   border: 2px solid rgba(97, 218, 251, 0.8);
   font-family: inherit;
   font-size: 16px;
-}
-
-#contact.active {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 #contact p {
@@ -463,26 +459,45 @@ footer {
   margin: 0 auto 60px auto;
 }
 
+.studies-list,
+.experience-list {
+  position: relative;
+}
+
 .studies-list::before,
 .experience-list::before {
   content: "";
   position: absolute;
+  top: 0;
   left: 20px;
   width: 4px;
-  height: 100%;
+  height: var(--timeline-height, 0px);
   background-color: #61dafb;
   border-radius: 2px;
+  transition: height 0.1s linear;
+  z-index: 0;
 }
+
+
 
 .study-item {
   position: relative;
   border-radius: 8px;
   padding: 20px 25px 20px 40px;
   margin-bottom: 70px;
+
   opacity: 0;
-  transform: translateX(-30px);
-  transition: all 0.6s ease-out;
+  transform: translateY(30px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
+
+.study-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .study-item::before,
 .experience-item::before {
@@ -496,7 +511,36 @@ footer {
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 0 0 3px #61dafb;
+
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
+
+.study-item.active::before,
+.experience-item.active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.study-item,
+.experience-item {
+  opacity: 0;
+  transform: translateX(-40px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.study-item.active,
+.experience-item.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 .study-item .date {
   font-size: 0.9rem;
@@ -505,11 +549,6 @@ footer {
   margin-bottom: 8px;
   margin-top: 8px;
   display: block;
-}
-
-.study-item.active {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 #experience {
@@ -525,10 +564,19 @@ footer {
   border-radius: 8px;
   padding: 20px 25px 20px 40px;
   margin-bottom: 70px;
+
   opacity: 0;
-  transform: translateX(-30px);
-  transition: all 0.6s ease-out;
+  transform: translateY(30px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
+
+.experience-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .experience-item .date {
   font-size: 0.9rem;
@@ -537,11 +585,6 @@ footer {
   margin-bottom: 8px;
   margin-top: 8px;
   display: block;
-}
-
-.experience-item.active {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 #music-toggle {
@@ -566,50 +609,11 @@ nav.open {
   display: flex;
 }
 
-.fadeInUp {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-main > * {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
-
-main > *.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-main > *:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-main > *:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-main > *:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-main > *:nth-child(4) {
-  animation-delay: 0.8s;
-}
-
-main > *:nth-child(5) {
-  animation-delay: 1s;
 }
 
 .copyright {
@@ -621,6 +625,21 @@ main > *:nth-child(5) {
   display: flex;
   justify-content: center;
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 @media (max-width: 600px) {
   nav {
