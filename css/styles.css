@@ -11,7 +11,7 @@ main {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 50px;
 }
 
 main section {
@@ -127,13 +127,110 @@ nav a:hover::after {
   transform: scaleX(1);
 }
 
-@keyframes shine {
+.tech-carousel {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.tech-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 15px;
+
+  animation: carousel-left 30s linear infinite;
+
+  will-change: transform;
+}
+
+.tech-track.reverse {
+  animation-name: carousel-right;
+}
+
+.tech-item {
+  position: relative;
+
+  width: 55px;
+  height: 55px;
+  flex: 0 0 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+
+  transition: transform 0.25s ease;
+}
+
+.tech-item:hover img {
+  transform: scale(1.3);
+}
+
+.tech-carousel:has(.tech-item:hover) .tech-track {
+  animation-play-state: paused;
+}
+
+.tech-item::after {
+  content: attr(data-name);
+
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+
+  transform: translateX(-50%) translateY(5px);
+
+  background: rgba(5, 6, 8, 0.95);
+  color: white;
+
+  padding: 5px 9px;
+  border-radius: 5px;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  z-index: 1000;
+}
+
+.tech-item:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes carousel-left {
   from {
-    background-position: 200% 0;
+    transform: translateX(0);
   }
 
   to {
-    background-position: -200% 0;
+    transform: translateX(calc(-50% - 7.5px));
+  }
+}
+
+@keyframes carousel-right {
+  from {
+    transform: translateX(calc(-50% - 7.5px));
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
 
@@ -202,7 +299,7 @@ nav a:hover::after {
 }
 
 .scroll-arrow {
-  margin-top: 20px;
+  margin: 20px;
   display: flex;
   justify-content: center;
   transition: opacity 0.4s ease;
@@ -262,19 +359,6 @@ nav a:hover::after {
   color: white;
   width: 100%;
   max-width: 500px;
-}
-
-.container-languages ul li img,
-.container-technologies ul li img {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
-  transition: transform 0.3s ease;
-}
-
-.container-languages ul li img:hover,
-.container-technologies ul li img:hover {
-  transform: scale(1.1);
 }
 
 .projects-list {
@@ -403,7 +487,6 @@ form#contact-form button:hover {
   background-color: #21a1f1;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 25px 10px;
@@ -448,15 +531,15 @@ footer {
   z-index: 1;
 }
 
-.skills-group {
-  padding-top: 30px;
-}
-
 #studies {
   position: relative;
   padding-left: 40px;
   max-width: 600px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto;
+}
+
+#contact {
+  margin-top: 50px;
 }
 
 .studies-list,
@@ -478,6 +561,10 @@ footer {
   z-index: 0;
 }
 
+.study-item:first-child {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 
 .study-item {
@@ -556,7 +643,7 @@ footer {
   padding-left: 40px;
   padding-top: 30px;
   max-width: 600px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto;
 }
 
 .experience-item {
@@ -609,21 +696,8 @@ nav.open {
   display: flex;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .copyright {
   padding-top: 20px;
-}
-
-.scroll-wrapper,
-.scroll-wrapper2 {
-  display: flex;
-  justify-content: center;
 }
 
 .reveal {
@@ -694,12 +768,6 @@ nav.open {
     color: white;
     display: block;
     padding-right: 30px;
-  }
-
-  .scroll-wrapper,
-  .scroll-wrapper2 {
-    display: flex;
-    justify-content: start;
   }
 
   main {
@@ -852,37 +920,6 @@ nav.open {
 
   .container-technologies h3 {
     padding-bottom: 10px;
-  }
-
-  .scroll-wrapper,
-  .scroll-wrapper2 {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .scroll-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scroll-wrapper ul {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 16px;
-    margin: 0;
-    padding: 10px 0;
-    list-style: none;
-    min-width: max-content;
-  }
-
-  .scroll-wrapper ul li {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-  }
-
-  .scroll-wrapper ul li img {
-    width: 30px;
-    height: 30px;
   }
 }
 

@@ -115,12 +115,10 @@ function initEmailJS() {
     const email = emailInput.value.trim();
     const message = messageInput.value.trim();
 
-    // Restaurar estilo de error
     formError.textContent = "";
     formError.classList.remove("form-success");
     formError.classList.add("form-error");
 
-    // Validar mensaje
     if (message.length < 10) {
       formError.textContent =
         "El mensaje debe tener al menos 10 caracteres.";
@@ -184,7 +182,15 @@ function updateTimeline() {
       `${lineHeight}px`
     );
 
-    items.forEach((item) => {
+    items.forEach((item, index) => {
+      const isFirstStudy =
+        index === 0 && item.classList.contains("study-item");
+
+      if (isFirstStudy) {
+        item.classList.add("active");
+        return;
+      }
+
       const itemRect = item.getBoundingClientRect();
 
       if (itemRect.top < triggerPoint) {
@@ -193,13 +199,51 @@ function updateTimeline() {
         item.classList.remove("active");
       }
     });
+
   });
 }
 
+function initCarousels() {
+  const languagesCarousel = new Splide(".languages-carousel", {
+    type: "loop",
+    drag: "free",
+    arrows: false,
+    pagination: false,
+    perPage: 6,
+    gap: "15px",
+    autoWidth: true,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    autoScroll: {
+      speed: 0.5,
+      pauseOnHover: true,
+      pauseOnFocus: true,
+    },
+  });
+
+  const technologiesCarousel = new Splide(".technologies-carousel", {
+    type: "loop",
+    drag: "free",
+    arrows: false,
+    pagination: false,
+    perPage: 6,
+    gap: "15px",
+    autoWidth: true,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    autoScroll: {
+      speed: -0.5,
+      pauseOnHover: true,
+      pauseOnFocus: true,
+    },
+  });
+
+  languagesCarousel.mount(window.splide.Extensions);
+  technologiesCarousel.mount(window.splide.Extensions);
+}
 
 window.addEventListener("scroll", updateTimeline);
 window.addEventListener("resize", updateTimeline);
-
 
 window.addEventListener("load", () => {
   setTimeout(() => window.scrollTo(0, 0), 10);
@@ -208,6 +252,7 @@ window.addEventListener("load", () => {
   initParticles();
   initMobileMenu();
   initEmailJS();
+  initCarousels();
   updateTimeline();
 });
 
