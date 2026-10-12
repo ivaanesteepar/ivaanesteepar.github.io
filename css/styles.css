@@ -116,8 +116,8 @@ body.intro-finished #about .container-technologies {
 #site-intro::after {
   position: absolute;
   content: "";
-  width: min(58vw, 560px);
-  height: min(58vw, 560px);
+  width: min(108vw, 620px);
+  height: min(108vw, 620px);
   border: 1px solid rgba(97, 218, 251, 0.07);
   border-radius: 50%;
   pointer-events: none;
@@ -129,8 +129,8 @@ body.intro-finished #about .container-technologies {
 }
 
 #site-intro::after {
-  width: min(74vw, 720px);
-  height: min(74vw, 720px);
+  width: min(126vw, 740px);
+  height: min(126vw, 740px);
   border-color: rgba(97, 218, 251, 0.035);
   animation: intro-orbit 2.1s 0.1s cubic-bezier(0.2, 0.7, 0.25, 1) both;
 }
