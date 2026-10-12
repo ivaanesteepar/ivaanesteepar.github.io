@@ -38,6 +38,7 @@ body.intro-active {
 body.intro-active #about .about-image,
 body.intro-active #about .about-text h1,
 body.intro-active #about .about-text p,
+body.intro-active #about .cv-button,
 body.intro-active #about .container-languages,
 body.intro-active #about .container-technologies {
   opacity: 0;
@@ -55,12 +56,16 @@ body.intro-finished #about .about-text p {
   animation: hero-text-in 0.62s 0.16s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-body.intro-finished #about .container-languages {
+body.intro-finished #about .cv-button {
   animation: hero-text-in 0.62s 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-body.intro-finished #about .container-technologies {
+body.intro-finished #about .container-languages {
   animation: hero-text-in 0.62s 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+body.intro-finished #about .container-technologies {
+  animation: hero-text-in 0.62s 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @keyframes hero-image-in {
@@ -234,6 +239,7 @@ body.intro-finished #about .container-technologies {
   body.intro-active #about .about-image,
   body.intro-active #about .about-text h1,
   body.intro-active #about .about-text p,
+  body.intro-active #about .cv-button,
   body.intro-active #about .container-languages,
   body.intro-active #about .container-technologies {
     opacity: 1;
@@ -242,6 +248,7 @@ body.intro-finished #about .container-technologies {
   body.intro-finished #about .about-image,
   body.intro-finished #about .about-text h1,
   body.intro-finished #about .about-text p,
+  body.intro-finished #about .cv-button,
   body.intro-finished #about .container-languages,
   body.intro-finished #about .container-technologies {
     animation: none;
@@ -585,6 +592,40 @@ nav a:hover::after {
   color: white;
   width: 100%;
   max-width: 500px;
+}
+
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 12px 20px;
+  border: 1px solid #61dafb;
+  border-radius: 6px;
+  background: rgba(97, 218, 251, 0.1);
+  color: #eafaff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cv-button:hover,
+.cv-button:focus-visible {
+  transform: translateY(-2px);
+  background: #61dafb;
+  color: #071018;
+  box-shadow: 0 8px 24px rgba(97, 218, 251, 0.2);
+}
+
+.cv-button:focus-visible {
+  outline: 2px solid #eafaff;
+  outline-offset: 4px;
 }
 
 .projects-list {

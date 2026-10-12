@@ -15,6 +15,7 @@ const UI_TRANSLATIONS = {
     profileAlt: "Iván",
     aboutDescription:
       "Ingeniero informático apasionado por el desarrollo de software, con experiencia en proyectos web y aplicaciones móviles. Me encanta aprender nuevas tecnologías y mejorar cada día.",
+    viewCv: "Ver mi CV",
     programmingLanguages: "Lenguajes de programación",
     otherTechnologies: "Otras tecnologías",
     studiesTitle: "Estudios",
@@ -69,6 +70,7 @@ const UI_TRANSLATIONS = {
     profileAlt: "Portrait of Iván",
     aboutDescription:
       "Computer engineer passionate about software development, with experience in web projects and mobile applications. I love learning new technologies and improving every day.",
+    viewCv: "View my CV",
     programmingLanguages: "Programming languages",
     otherTechnologies: "Other technologies",
     studiesTitle: "Education",

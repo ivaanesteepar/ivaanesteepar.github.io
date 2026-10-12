@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b10" />
+    <title>CV | Iván Estépar</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Arial, sans-serif;
+        background: #080b10;
+        color: #eafaff;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        text-align: center;
+      }
+
+      main {
+        padding: 2rem;
+      }
+
+      p {
+        color: #aab8c3;
+      }
+
+      a {
+        color: #61dafb;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p id="status" role="status">Abriendo el currículum…</p>
+      <p id="fallback" hidden>
+        No se pudo abrir el currículum. <a href="docs/CURRICULUM.pdf">Descargar PDF</a>.
+      </p>
+    </main>
+    <script src="js/cv-viewer.js"></script>
+  </body>
+</html>
