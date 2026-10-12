@@ -102,9 +102,7 @@ body.intro-finished #about .container-technologies {
   place-items: center;
   overflow: hidden;
   color: white;
-  background:
-    radial-gradient(ellipse at 50% 44%, rgba(31, 111, 143, 0.19), transparent 38%),
-    linear-gradient(145deg, #090e15, #050608 68%);
+  background: linear-gradient(145deg, #090e15, #050608 68%);
   opacity: 1;
   visibility: visible;
   transition:
@@ -112,27 +110,16 @@ body.intro-finished #about .container-technologies {
     visibility 0s linear 0.55s;
 }
 
-#site-intro::before,
-#site-intro::after {
-  position: absolute;
-  content: "";
-  width: min(108vw, 620px);
-  height: min(108vw, 620px);
-  border: 1px solid rgba(97, 218, 251, 0.07);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 #site-intro::before {
-  transform: scale(0.72);
-  animation: intro-orbit 2.1s cubic-bezier(0.2, 0.7, 0.25, 1) both;
-}
-
-#site-intro::after {
-  width: min(126vw, 740px);
-  height: min(126vw, 740px);
-  border-color: rgba(97, 218, 251, 0.035);
-  animation: intro-orbit 2.1s 0.1s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+  position: absolute;
+  inset: -32px;
+  content: "";
+  background-image:
+    linear-gradient(rgba(97, 218, 251, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(97, 218, 251, 0.045) 1px, transparent 1px);
+  background-size: clamp(34px, 7vw, 64px) clamp(34px, 7vw, 64px);
+  pointer-events: none;
+  animation: intro-grid-drift 18s ease-in-out infinite alternate;
 }
 
 #site-intro.is-leaving {
@@ -293,15 +280,13 @@ body.intro-finished #about .container-technologies {
   }
 }
 
-@keyframes intro-orbit {
+@keyframes intro-grid-drift {
   from {
-    opacity: 0;
-    transform: scale(0.72) rotate(-18deg);
+    transform: translateY(-8px);
   }
 
   to {
-    opacity: 1;
-    transform: scale(1) rotate(0);
+    transform: translateY(8px);
   }
 }
 
